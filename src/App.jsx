@@ -1,25 +1,27 @@
-import { useState } from 'react';
+import React, { useState } from "react";
+import "./App.css";
 
-import './App.css';
-
-function App() {
+const Counter = () => {
   const [count, setCount] = useState(0);
 
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+
+  const handleDecrement = () => {
+    setCount(count - 1);
+  };
+
   return (
-    <>
-      <div className="card">
-        <h1> Counter App</h1>
-
-        <h2>{count}</h2>
-        <button onClick={() => setCount((count) => count + 1)}>
-          Increment
-        </button>
-        <button onClick={() => setCount((count) => count - 1)}>
-          Decrement
-        </button>
+    <div className="counter">
+      <h2>Counter App</h2>
+      <div className="count">Count: {count}</div>
+      <div className="button-container">
+        <button onClick={handleIncrement}>Increment</button>
+        <button onClick={handleDecrement}>Decrement</button>
       </div>
-    </>
+    </div>
   );
-}
+};
 
-export default App;
+export default Counter;
